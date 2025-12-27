@@ -3,6 +3,7 @@ package com.app.chatapp.Repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -25,5 +26,16 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
     		    @Param("userId") Long userId,
     		    @Param("contactId") Long contactId
     		);
+    
+    @Modifying
+    @Query("""
+        update Message m
+        set m.seen = true
+        where m.sender.userId = :senderId
+          and m.receiver.userId = :receiverId
+          and m.seen = false
+    """)
+    void markConversationAsSeen(Long senderId, Long receiverId);
+
 
 }

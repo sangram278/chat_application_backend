@@ -55,9 +55,9 @@ public class UsersServiceImpl implements UsersService {
 	}
 
 	@Override
-	public Users login(Users user) {
-	    return userRepository.findByPhone(user.getPhone())
-	            .orElseThrow(() -> new RuntimeException("User not registered"));
+	public Users login(String phone) {
+	    return userRepository.findByPhone(phone)
+	            .orElseThrow(() -> new UserNotFoundException("User not registered"));
 	}
 
 

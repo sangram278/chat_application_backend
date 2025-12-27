@@ -12,4 +12,6 @@ public interface MessageService {
     List<Message> getConversation(Long userId, Long contactId);
 
     Message markAsSeen(Long messageId);
+    
+    public void markConversationAsSeen(Long senderId, Long receiverId);
 }

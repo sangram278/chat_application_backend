@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import com.app.chatapp.service.UsersService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
+@CrossOrigin("http://localhost:5173/")
 public class NotificationController {
 
 	@Autowired

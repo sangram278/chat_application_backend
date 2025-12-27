@@ -12,7 +12,7 @@ public interface UsersService {
     Users updateOnlineStatus(Long userId, boolean status);
     boolean isUserOnline(Long userId);
 	Users getUserById(Long userId);
-	Users login(Users user);
+	Users login(String phone);
 	List<Users> getRegisteredContacts(Long userId, List<String> contacts);
 	Users getUserByPhone(String name);
 }
